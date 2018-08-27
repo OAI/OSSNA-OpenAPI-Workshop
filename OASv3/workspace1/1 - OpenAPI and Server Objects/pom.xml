@@ -7,7 +7,7 @@
     <name>1 - Metadata</name>
     <packaging>pom</packaging>
     <properties>
-        <reprezen.version>1.6.4.8977</reprezen.version>
+        <reprezen.version>[1.6.4.8984,2.0)</reprezen.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <shared.gentemplates.dir>C:\Users\Ted\workspacerzen\OAS2Training\workspace1/shared/GenTemplates</shared.gentemplates.dir>
     </properties>
@@ -32,8 +32,8 @@
     </dependencies>
     <repositories>
         <repository>
-            <id>reprezen-repo-dev</id>
-            <url>http://maven.reprezen.com/repository/dev</url>
+            <id>reprezen-repo-releases</id>
+            <url>http://maven.reprezen.com/repository/releases</url>
             <layout>default</layout>
         </repository>
     </repositories>
