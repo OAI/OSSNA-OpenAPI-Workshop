@@ -1,0 +1,40 @@
+# OpenAPI v3 Training Exercise
+
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: My API Spec
+  description: |
+    # UAE Exchange API for Customer Mangement
+
+    Customer API used at [UAE Exchange](http://www.uaeexchange.com).
+  
+    Lines that are
+    _consecutive_ (you can use underscores or single asterisks for italics) will be treated as a single 
+    **paragraph**.
+    sdfsdf
+    
+    Two consecutive line breaks will create a new paragraph.
+    
+    ## Second-level heading
+    
+    ### Third-level heading
+    changing something..
+    
+    This is a list of vegetables:
+
+    1. Tomato
+    2. Tom-ah-to
+    3. Potato
+        * French Fries
+        * Baked potatoes
+        * Mashed potatoes
+            * with gravy
+            * without gravy
+  
+paths:
+  /resourceUrl:
+    get:
+      responses:
+        200:
+          description: Success
