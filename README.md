@@ -10,20 +10,26 @@ Workshop attendees will want to download or clone the repository to a writable f
 
 There are many commercial and open source editors for OpenaPI. In this workshop, we recommend that you work with one or more of the following tools
 
-RepreZen API Studio (Eclipse-based):
+### RepreZen API Studio (Eclipse-based):
 * http://rzen.io/preview
     * Windows - reprezen-win64-setup.exe
     * MacOS - reprezen-macos-setup.dmg
     * Linux - reprezen-linux64-setup.run
 
-Swagger (Browser-based) :
+### Swagger (Browser-based) :
 * https://editor.swagger.io
 * https://swaggerhub.com
 
-## RepreZen API Studio Setup
+## Workspace Setup
+
+### RepreZen API Studio Setup
 1. Go to **File > Switch Workspace > Other...** and select the `/OASv3/workspace1` folder from your local repo.
 2. Import the projects:
     * Go to **File > Import > General > Existing projects into workspace**
     * Click Browse...
     * Click OK
     * Select all projects, and click Finish
+
+### Swagger Setup
+
+No setup required. You may import or copy-and-paste the exercises and answers into Swagger Editor or SwaggerHub.d
