@@ -7,23 +7,46 @@ info:
   description: |
     # Exercise: Nested Schemas
     
-    In this exercise, we'll create a new object-typed schema.  
-    The new `/tax_payment/{id}` path item has a GET method with a 
-    200 response. The schema of the 200 response body only specifies
-    that the value must be an object.
+    Did you notice something a little off in the last example? 
+    That's right, a tax filing could have more than one associated
+    payment record. So we'll fix that in the `TaxFiling` schema.
     
-    Add the necessary fields to the Schema Object to make it validate
-    a message payload like this:
-    
+    We want our TaxFiling instance to look like this: 
+       
     ```
     {
-      "paymentID": "P12347",
-      "date": "2018-04-10",
-      "amount": 2231.89,
-      "currency": "USD"
-    }    
+      "filingID" : "ASDF1234",
+      "taxpayerID" : "987-89-2345",
+      "jurisdiction" : "Internal Revenue Service",
+      "fileDate" : "2017-04-10",
+      "isJointFiling" : false,
+      "filingStatus" : "submitted",
+      "payment" : [
+        {
+          "paymentID": "P198723",
+          "date": "2018-04-10",
+          "amount": 1500.00,
+          "currency": "USD"
+        },
+        {
+          "paymentID": "P12347",
+          "date": "2018-06-30",
+          "amount": 2231.89,
+          "currency": "USD"
+        }
+      ]
+    }
     ```
     
+    1. In the `TaxFiling` component schema, change the `payment`
+       property to `payments`, plural.
+      
+    2. Change the `payments` schema from a single-valued reference to
+       an array of references to `TaxPayment`.  
+         
+       **HINT**: Remember, arrays use the `items` subschema to specify
+       the schema for the elements of the array.
+       
 paths:
 
   /tax_payment/{id}:
