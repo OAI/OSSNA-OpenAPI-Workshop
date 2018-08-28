@@ -30,17 +30,7 @@ info:
        
     2. Create a new schema component called `AmendedTaxFiling`
        that is _both_ a `TaxFiling` and an `Amendment`. 
-    
-    
-    1. In the `TaxFiling` component schema, change the `payment`
-       property to `payments`, plural.
-      
-    2. Change the `payments` schema from a single-valued reference to
-       an array of references to `TaxPayment`.  
-         
-       **HINT**: Remember, arrays use the `items` subschema to specify
-       the schema for the elements of the array.
-       
+
 paths:
 
   /tax_payment/{id}:

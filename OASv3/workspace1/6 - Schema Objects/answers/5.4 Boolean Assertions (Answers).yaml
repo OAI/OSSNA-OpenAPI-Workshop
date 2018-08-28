@@ -4,27 +4,33 @@ openapi: "3.0.0"
 info:
   version: 1.0.0
   title: TaxBlaster API
-  
   description: |
-    # Exercise: New Object Schema
+    # Exercise: Boolean Assertions
     
-    In this exercise, we'll create a new object-typed schema.  
-    The new `/tax_payment/{id}` path item has a GET method with a 
-    200 response. The schema of the 200 response body only specifies
-    that the value must be an object.
-    
-    Add the necessary elements to the Schema Object to make it validate
-    a message payload like this:
-    
-    ```
-    {
-      "paymentID": "P12347",
-      "date": "2018-04-10",
-      "amount": 2231.89,
-      "currency": "USD"
-    }    
-    ```
-    
+    Remember, JSON Schema is primarily a _validation language_. 
+    Each schema is a set of constraints, and a value may conform
+    to more than one schema. Boolean assertions validate 
+    conformance to one or more schemas:
+    * `allOf` asserts that the instance must validate
+      independently against _each one_ of a list of subschemas. 
+      
+    * `anyOf` asserts that the instance must validate against
+      _at least one_ of a list of subschemas. 
+
+    * `oneOf` asserts that the instance must validate against
+      _exactly one_ of a list of subschemas. 
+
+    * `not` asserts that the instance does not conform to a
+      given subschema.
+      
+    Try making the following changes:
+      
+    1. Modify the `taxDue` property of `Taxpayer` so it accepts
+       _either_ a `number` or a `MissingValue`. 
+       
+    2. Create a new schema component called `AmendedTaxFiling`
+       that is _both_ a `TaxFiling` and an `Amendment`. 
+           
 paths:
 
   /tax_payment/{id}:
@@ -165,7 +171,26 @@ components:
           type: boolean
         filingStatus:
           $ref: "#/components/schemas/TaxFilingStatus"
+    
+    Amendment:
+      description: a formal change to an existing document
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        amendedBy:
+          type: string
+        originalDocumentURL:
+          type: string
+        changeSummary:
+          type: string 
           
+    AmendedTaxFiling:
+      allOf:
+      - $ref: "#/components/schemas/TaxFiling"
+      - $ref: "#/components/schemas/Amendment"
+        
     TaxFilingStatus:
       type: string
       enum:
@@ -193,8 +218,20 @@ components:
         maritalStatus:
           type: boolean
         taxDue:
-          type: number
+          oneOf:
+          - type: number
+          - $ref: "#/components/schemas/MissingValue"
   
+    MissingValue:
+      description:
+        An explanatory value given where the expected
+        value is missing. 
+      type: string
+      enum:
+      - "Not Available"
+      - "Not Applicable"
+      - "Not Meaningful"
+      
     Taxpayers:
       type: array
       items:

@@ -4,27 +4,46 @@ openapi: "3.0.0"
 info:
   version: 1.0.0
   title: TaxBlaster API
-  
   description: |
-    # Exercise: New Object Schema
+    # Answers: Nested Schemas
     
-    In this exercise, we'll create a new object-typed schema.  
-    The new `/tax_payment/{id}` path item has a GET method with a 
-    200 response. The schema of the 200 response body only specifies
-    that the value must be an object.
+    Building on the previous exercise, we'll extract the new 
+    object schema from `/taxpayment/{id}` to a reusable component
+    schema. Then we'll reference it in a new `payment` property in 
+    the `TaxFiling` schema.
     
-    Add the necessary elements to the Schema Object to make it validate
-    a message payload like this:
+    The result will be that TaxFiling has a nested structure -- an 
+    that contains another object as one of its property values. 
+    A TaxFiling instance with this new structure might look like this:
     
     ```
     {
-      "paymentID": "P12347",
-      "date": "2018-04-10",
-      "amount": 2231.89,
-      "currency": "USD"
-    }    
+      "filingID" : "ASDF1234",
+      "taxpayerID" : "987-89-2345",
+      "jurisdiction" : "Internal Revenue Service",
+      "fileDate" : "2017-04-10",
+      "isJointFiling" : false,
+      "filingStatus" : "submitted",
+      "payment" : {
+        "paymentID": "P12347",
+        "date": "2018-04-10",
+        "amount": 2231.89,
+        "currency": "USD"
+      }
+    }
     ```
     
+    1. Copy the object schema from the `/taxpayment/{id}` GET response
+       to a new `TaxPayment` reusable schema in `/components/schemas`.
+       
+    2. Replace the object schema from the `/taxpayment/{id}` GET response
+       with a reference to the new `TaxPayment` reusable schema.  
+       **HINT:** Code assist is helpful to insert `$ref` values.
+    
+    3. Add a `payment` property definition to the `TaxFiling` object
+       schema, as a reference to the same `TaxPayment` schema you 
+       referenced directly in the previous step. 
+
 paths:
 
   /tax_payment/{id}:
@@ -43,7 +62,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                $ref: "#/components/schemas/TaxPayment"
 
   /taxpayers:
     get:
@@ -165,6 +184,8 @@ components:
           type: boolean
         filingStatus:
           $ref: "#/components/schemas/TaxFilingStatus"
+        payment:
+          $ref: "#/components/schemas/TaxPayment"
           
     TaxFilingStatus:
       type: string
@@ -199,6 +220,20 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/Taxpayer"
+        
+    TaxPayment:
+      type: object
+      properties:
+        paymentID:
+          type: string
+        date:
+          type: string
+          format: date
+        amount:
+          type: number
+        currency:
+          type: string
+    
         
     ErrorResponse:
       description: An error string returned from a bad response.

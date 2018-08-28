@@ -46,7 +46,7 @@ info:
          
        **HINT**: Remember, arrays use the `items` subschema to specify
        the schema for the elements of the array.
-       
+
 paths:
 
   /tax_payment/{id}:
@@ -65,7 +65,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                $ref: "#/components/schemas/TaxPayment"
 
   /taxpayers:
     get:
@@ -187,6 +187,8 @@ components:
           type: boolean
         filingStatus:
           $ref: "#/components/schemas/TaxFilingStatus"
+        payment:
+          $ref: "#/components/schemas/TaxPayment"
           
     TaxFilingStatus:
       type: string
@@ -221,6 +223,20 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/Taxpayer"
+        
+    TaxPayment:
+      type: object
+      properties:
+        paymentID:
+          type: string
+        date:
+          type: string
+          format: date
+        amount:
+          type: number
+        currency:
+          type: string
+    
         
     ErrorResponse:
       description: An error string returned from a bad response.

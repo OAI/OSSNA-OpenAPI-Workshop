@@ -63,6 +63,16 @@ paths:
             application/json:
               schema:
                 type: object
+                properties:
+                  paymentID:
+                    type: string
+                  date:
+                    type: string
+                    format: date
+                  amount:
+                    type: number
+                  currency:
+                    type: string
 
   /taxpayers:
     get:
