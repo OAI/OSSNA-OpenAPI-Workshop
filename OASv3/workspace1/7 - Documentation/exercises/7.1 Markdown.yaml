@@ -5,9 +5,21 @@ info:
   version: 1.0.0
   title: My API Spec
   description: |
-    # UAE Exchange API for Customer Mangement
+    # Exercise - Markdown
+    
+    OpenAPI 3.0 uses the CommonMark specification for 
+    `description` properties, and other properties that allow
+    markdown formatting. 
+    
+    Reformat this description by translating the embedded
+    instructions into the corresponding CommonMark syntax:
+    
+      (Heading 1) Introducing RoboPet
+      
+      Have you ever wished your pet would have robot-like
+      qualities? 
 
-    Customer API used at [UAE Exchange](http://www.uaeexchange.com).
+    Customer API used at [Bigco](http://www.bigco.com).
   
     Lines that are
     _consecutive_ (you can use underscores or single asterisks for italics) will be treated as a single 
