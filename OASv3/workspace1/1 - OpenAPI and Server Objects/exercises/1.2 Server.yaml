@@ -5,7 +5,7 @@ info:
   version: 1.0.0
   title: TaxBlaster API
   description: |
-    ## Exercise - Server Information
+    # Exercise: Server Information
     
     This OpenAPI 2.0 specification does not include a physical address for 
     the API. Please specify the following information,using the `servers`

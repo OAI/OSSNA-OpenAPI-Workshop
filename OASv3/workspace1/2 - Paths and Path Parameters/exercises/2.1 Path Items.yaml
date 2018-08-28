@@ -5,7 +5,7 @@ info:
   version: 1.0.0
   title: TaxBlaster API
   description: |
-    ## Exercise - Path Items
+    # Exercise: Path Items
     
     This OpenAPI 2.0 document has a single `/diagnostics` path item.
     Please use code assist templates to create the following path items: 

@@ -5,6 +5,7 @@ info:
   version: 1.0.0
   title: TaxBlaster API
   description: |
+    # Exercise: GET Operation
     
     This OpenAPI 2.0 document has `/taxpayers` and `/taxpayers/{id}`
     path items, each with an OPTIONS operation. In this exercise, 

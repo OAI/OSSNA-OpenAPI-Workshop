@@ -5,6 +5,7 @@ info:
   version: 1.0.0
   title: TaxBlaster API
   description: |
+    # Answers: Header Parameters
     
     In this exercise, we'll use header parameters to add some useful
     qualifiers to the `/taxpayers/{id}` and `/tax_filings/{id}` 

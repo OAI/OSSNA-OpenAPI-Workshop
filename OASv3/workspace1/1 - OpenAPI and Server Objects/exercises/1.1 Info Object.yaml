@@ -6,7 +6,7 @@ info:
   title: TaxBlaster API
   
   description: |
-    ## Exercise - Info Object
+    # Exercise: Info Object
     
     This OpenAPI 2.0 specification has only minimal metadata.
     Please populate additional metadata as follows: 

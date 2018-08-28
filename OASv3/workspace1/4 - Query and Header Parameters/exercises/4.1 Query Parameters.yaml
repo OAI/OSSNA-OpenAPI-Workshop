@@ -5,6 +5,7 @@ info:
   version: 1.0.0
   title: TaxBlaster API
   description: |
+    # Exercise: Query Parameters
     
     In this exercise, we'll use query string parameters to add filter 
     criteria to the `/taxpayers` and `/tax_filings` path items.  

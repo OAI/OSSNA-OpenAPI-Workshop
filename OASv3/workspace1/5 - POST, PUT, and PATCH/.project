@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Markdown</name>
+	<name>5 - POST, PUT, and PATCH</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
 			<name>org.eclipse.xtext.ui.shared.xtextBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>com.modelsolv.reprezen.ui.RepreZenBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>

@@ -5,22 +5,44 @@ info:
   version: 1.0.0
   title: TaxBlaster API
   description: |
+    # Exercise: Nested Schemas
     
-    Now we'll create a POST method to add a new taxpayer.  
-    The POST request will carry a representation of the 
-    taxpayer object to be created.  
+    In this exercise, we'll create a new object-typed schema.  
+    The new `/tax_payment/{id}` path item has a GET method with a 
+    200 response. The schema of the 200 response body only specifies
+    that the value must be an object.
     
-    1. In the `/taxpayers` path item, add a new POST operation, with
-       a description indicating that it's adding a new Taxpayer object
-       to the collection. The request body parameter should be a
-       reference to the existing Taxpayer schemaobject in the definitions
-       object.
-       
-    2. Set the successful response to use HTTP response code 201 (Created).
-       The response should also include a reference to the Taxpayer
-       schema.
-
+    Add the necessary fields to the Schema Object to make it validate
+    a message payload like this:
+    
+    ```
+    {
+      "paymentID": "P12347",
+      "date": "2018-04-10",
+      "amount": 2231.89,
+      "currency": "USD"
+    }    
+    ```
+    
 paths:
+
+  /tax_payment/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: Payment ID
+      required: true
+      schema:
+        type: string
+    get:
+      description: Retrieve a single tax payment.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
 
   /taxpayers:
     get:

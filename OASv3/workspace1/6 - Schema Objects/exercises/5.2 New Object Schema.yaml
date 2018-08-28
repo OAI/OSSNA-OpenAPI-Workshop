@@ -1,28 +1,48 @@
 # OpenAPI v3 Training Exercise
 
 openapi: "3.0.0"
-
 info:
   version: 1.0.0
   title: TaxBlaster API
   description: |
-    # Answers: Query Parameters
+    # Exercise: New Object Schema
     
-    In this exercise, we'll use query string parameters to add filter 
-    criteria to the `/taxpayers` and `/tax_filings` path items.  
+    In this exercise, we'll create a new object-typed schema.  
+    The new `/tax_payment/{id}` path item has a GET method with a 
+    200 response. The schema of the 200 response body only specifies
+    that the value must be an object.
     
-    1. On the `/taxpayers` GET operation, add an optional query 
-       parameter named 'minTaxDue' to filter the response, so it
-       only includes taxpayers owing the specified parameter value
-       or more.
-       
-    2. On the `/tax_filings` GET operation, 
-       we want to be able to pass a parameter like this: </br>
-       `/tax_filings?status=Submitted` </br>
-       This should filter the response, so it only includes TaxFiling
-       objects having the specified `status` value. 
-
+    Add the necessary fields to the Schema Object to make it validate
+    a message payload like this:
+    
+    ```
+    {
+      "paymentID": "P12347",
+      "date": "2018-04-10",
+      "amount": 2231.89,
+      "currency": "USD"
+    }    
+    ```
+    
 paths:
+
+  /tax_payment/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: Payment ID
+      required: true
+      schema:
+        type: string
+    get:
+      description: Retrieve a single tax payment.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
 
   /taxpayers:
     get:
@@ -54,9 +74,9 @@ paths:
     - description: ID of the individual taxpayer.
       name: id
       in: path
-      required: true
       schema:
         type: string
+      required: true
     get:
       description: Retrieve an individual taxpayer.
       responses:
