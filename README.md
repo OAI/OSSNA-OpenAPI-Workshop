@@ -8,7 +8,7 @@ Workshop attendees will want to download or clone the repository to a writable f
 
 ## OpenAPI Editing Tools
 
-There are many commercial and open source editors for OpenaPI. In this workshop, we recommend that you work with one or more of the following tools
+There are many commercial and open source editors for OpenAPI. In this workshop, we recommend that you work with one or more of the following tools
 
 ### RepreZen API Studio (Eclipse-based):
 * http://rzen.io/preview
@@ -32,4 +32,4 @@ There are many commercial and open source editors for OpenaPI. In this workshop,
 
 ### Swagger Setup
 
-No setup required. You may import or copy-and-paste the exercises and answers into Swagger Editor or SwaggerHub.d
+No setup required. You may import or copy-and-paste the exercises and answers into Swagger Editor or SwaggerHub.
